@@ -14,23 +14,23 @@
         <section class="jumbotron text-center">
             <div class="container">
                 <h1 class="jumbotron-heading">Unix Timestamp Tool</h1>
-                <p class="lead text-muted">Some description of what this is and what you can do with it</p>
+                <p class="lead text-muted">Pause the live timestamp. Paste a copied timestamp. Manipulate the timestamp. Copy the timestamp and paste elsewhere</p>
             </div>
         </section>
     <div class="container">
         <div class="row">
             <div class="col-sm text-center">
                 <div class="timestampRow">
-                <div class="h1" id="timestamp"></div>
+                <div class="h1"><input type="text" size="12" id="timestamp"></div>
                 <div><button type="button" id="live" class="btn btn-light"><img id="liveIcon" src="#" alt="pause"></button></div>
                 </div>
             </div>
         </div>
-        <div class="row humanRow"><div class="col-sm text-muted text-center" id="human">h</div></div>
+        <div class="row humanRow"><div class="col-sm text-muted text-center" id="humanUtc"></div></div>
         <div class="row">
-            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundMin">Round Min</button></div>
-            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundHour">Round Hour</button></div>
-            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundDay">Round Day</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundMin">Min</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundHour">Hour</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundDay">Day</button></div>
         </div>
         <div class="row">
             <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="plusMin">+1 Min</button></div>

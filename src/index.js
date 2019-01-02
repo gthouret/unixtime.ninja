@@ -1,15 +1,22 @@
 var moment = require("moment");
 var $ = require("jquery");
+import './style.css';
 
 let livePaused = false;
 let timestamp = 0;
 
-moment.locale('en');
+import pauseIcon from '../node_modules/open-iconic/svg/media-pause.svg';
+import playIcon from '../node_modules/open-iconic/svg/media-play.svg';
+
 liveUpdate();
 window.setInterval(liveUpdate, 500);
 
 $(document).ready(function() {
+    $("#liveIcon").attr("src", pauseIcon);
+    $("#liveIcon").attr("alt", "pause");
+
     $("#live").click(liveClick);
+
     $("#roundMin").click(function () {
         roundTs(60);
     });
@@ -41,10 +48,8 @@ $(document).ready(function() {
 
 function setTimestamp(value) {
     timestamp = parseInt(value);
-    $("#timestamp").text(timestamp.toString());
-
-    let d = moment.unix(timestamp);
-    $("#human").text(d.format("dddd, MMMM Do YYYY, HH:mm:ss"));
+    $("#timestamp").val(timestamp.toString());
+    updateHumanReadable();
 }
 
 function liveUpdate() {
@@ -53,12 +58,30 @@ function liveUpdate() {
 }
 
 function liveClick() {
-    console.log("liveclick: " + livePaused);
     livePaused = !livePaused;
-    if (livePaused)
-        $("#live").text("Static");
-    else
-        $("#live").text("Live");
+    if (livePaused) {
+        $("#liveIcon").attr("src", playIcon);
+        $("#liveIcon").attr("alt", "Resume Clock");
+        //$("#timestamp").attr("contenteditable", "true");
+        $("#timestamp").change(timestampChange);
+    } else {
+        $("#liveIcon").attr("src", pauseIcon);
+        $("#liveIcon").attr("alt", "Pause Clock");
+        //$("#timestamp").attr("contenteditable", "false");
+        $("#timestamp").change();
+    }
+}
+
+function timestampChange() {
+    console.log('Timestamp changed');
+    timestamp = parseInt($("#timestamp").val());
+    updateHumanReadable();
+}
+
+function updateHumanReadable() {
+    let tz = moment.unix(timestamp);
+    let utc = moment.unix(timestamp).utc();
+    $("#humanUtc").text(utc.format("dddd, MMMM Do YYYY, HH:mm:ss UTC"));
 }
 
 function roundTs(value) {
