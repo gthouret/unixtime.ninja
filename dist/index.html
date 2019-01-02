@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script language="JavaScript" src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Unix Timestamp Tool">
+    <meta name="author" content="Guy Thouret">
+    <title>Unix Timestamp Tool</title>
+</head>
+<body>
+    <main>
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Unix Timestamp Tool</h1>
+                <p class="lead text-muted">Some description of what this is and what you can do with it</p>
+            </div>
+        </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <div class="timestampRow">
+                <div class="h1" id="timestamp"></div>
+                <div><button type="button" id="live" class="btn btn-light"><img id="liveIcon" src="#" alt="pause"></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="row humanRow"><div class="col-sm text-muted text-center" id="human">h</div></div>
+        <div class="row">
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundMin">Round Min</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundHour">Round Hour</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="roundDay">Round Day</button></div>
+        </div>
+        <div class="row">
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="plusMin">+1 Min</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="plusHour">+1 Hr</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="plusDay">+1 Day</button></div>
+        </div>
+        <div class="row">
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="minusMin">-1 Min</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="minusHour">-1 Hr</button></div>
+            <div class="col-sm text-center"><button type="button" class="btn btn-secondary" id="minusDay">-1 Day</button></div>
+        </div>
+    </div>
+    </main>
+    <footer class="text-muted text-center">
+        <div class="container"><p>Created by <a href="https://www.thouret.uk">Guy Thouret</a> 2018</p></div>
+    </footer>
+</body>
+</html>
