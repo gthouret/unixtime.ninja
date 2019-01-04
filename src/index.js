@@ -18,12 +18,17 @@ $(document).ready(function() {
     $("#live").click(liveClick);
 
     $('#timestamp').bind('paste', function(e) {
-        var data = e.originalEvent.clipboardData.getData('Text');
+        let data = e.originalEvent.clipboardData.getData('Text');
         timestamp = parseInt(data);
         setTimeout(function () {
             pauseLive();
             setTimestamp(timestamp);
         }, 10);
+    });
+
+    $('#timestamp').keyup(function () {
+        let val = $('#timestamp').val();
+       setTimestamp(val);
     });
 
     $("#roundMin").click(function () {
