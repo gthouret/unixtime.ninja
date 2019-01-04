@@ -2,6 +2,10 @@
     color: brown;
 }
 
+#timestamp:focus {
+    outline-width: 0;
+}
+
 .humanRow {
     height: 70px;
 }
@@ -44,4 +48,9 @@
 
 footer {
     padding-top: 15px;
+}
+
+.buttonRow {
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
