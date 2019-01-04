@@ -17,6 +17,15 @@ $(document).ready(function() {
 
     $("#live").click(liveClick);
 
+    $('#timestamp').bind('paste', function(e) {
+        var data = e.originalEvent.clipboardData.getData('Text');
+        timestamp = parseInt(data);
+        setTimeout(function () {
+            pauseLive();
+            setTimestamp(timestamp);
+        }, 10);
+    });
+
     $("#roundMin").click(function () {
         roundTs(60);
     });
@@ -58,24 +67,22 @@ function liveUpdate() {
 }
 
 function liveClick() {
-    livePaused = !livePaused;
-    if (livePaused) {
-        $("#liveIcon").attr("src", playIcon);
-        $("#liveIcon").attr("alt", "Resume Clock");
-        //$("#timestamp").attr("contenteditable", "true");
-        $("#timestamp").change(timestampChange);
-    } else {
-        $("#liveIcon").attr("src", pauseIcon);
-        $("#liveIcon").attr("alt", "Pause Clock");
-        //$("#timestamp").attr("contenteditable", "false");
-        $("#timestamp").change();
-    }
+    if (livePaused)
+        resumeLive();
+    else
+        pauseLive();
 }
 
-function timestampChange() {
-    console.log('Timestamp changed');
-    timestamp = parseInt($("#timestamp").val());
-    updateHumanReadable();
+function pauseLive() {
+    livePaused = true;
+    $("#liveIcon").attr("src", playIcon);
+    $("#liveIcon").attr("alt", "Resume Clock");
+}
+
+function resumeLive() {
+    livePaused = false;
+    $("#liveIcon").attr("src", pauseIcon);
+    $("#liveIcon").attr("alt", "Pause Clock");
 }
 
 function updateHumanReadable() {
